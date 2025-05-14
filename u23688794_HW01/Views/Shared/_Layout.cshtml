@@ -3,32 +3,146 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Rescue Bus Emergency Service</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <!--Making use of a website called 'Font awesome' for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            -moz-box-sizing: inherit;
+            -webkit-box-sizing: inherit;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        logo i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+            .nav-links li {
+                display: inline;
+                margin-left: 30px;
+            }
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                -moz-border-radius: inherit;
+                -webkit-border-radius: inherit;
+                border-radius: 5px;
+                position: relative;
+                -moz-transition: inherit;
+                -o-transition: inherit;
+                -webkit-transition: inherit;
+                transition: all 0.3s ease;
+            }
+
+                .nav-links a:hover {
+                    background-color: #555;
+                    color: white;
+                }
+
+                .nav-links a.active {
+                    background-color: #555;
+                    color: white;
+                }
+
+                .nav-links a ::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    background-color: #fff;
+                    bottom: -5px;
+                    left: 50%;
+                    transition: width 0.3s ease, left 0.3s ease;
+                }
+
+                .nav-links a:hover::after {
+                    width: 100%;
+                    left: 0;
+                }
+
+    </style>
+
+
+
+
+
 </head>
+
+
+
+
+
+
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            
+
+            <a href="~/RescueBus/HomePage.cshtml" class="logo">
+                <i class="fa fa-ambulance" aria-hidden="true"></i>
+                RescueBus
+            </a>          
+
+            <ul class="nav-links">
+                <li>@Html.ActionLink("Home", "HomePage", "RescueBus", null, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Ride History", "RideHistory", "RescueBus", null, new { @class = ViewContext.RouteData.Values["Action"].ToString() == "RideHistory" ? "active" : "" })</li>
+                <li>@Html.ActionLink("Manage", "Manage", "RescueBus", null, new { @class = ViewContext.RouteData.Values["Action"].ToString() == "Manage" ? "active" : "" })</li>
+            </ul>
+
         </div>
     </nav>
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - RescueBus Ambulance Service</p>
         </footer>
     </div>
 

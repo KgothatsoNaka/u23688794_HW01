@@ -9,9 +9,22 @@ namespace u23688794_HW01.Controllers
     public class RescueBusController : Controller
     {
         // GET: RescueBus
-        public ActionResult Index()
+        public ActionResult HomePage()
         {
             return View();
         }
+
+        public ActionResult Manage()
+        {
+
+            return View();
+        }
+
+        public ActionResult RideHistory()
+        {
+            return View();
+        }
+
+
     }
 }
