@@ -14,6 +14,27 @@ namespace u23688794_HW01.Controllers
             return View();
         }
 
+        public ActionResult SelectService()
+        {
+            return View();
+        }
+
+        public ActionResult EmergencyBooking()
+        {
+            return RedirectToAction("BookingConfirmed");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         public ActionResult Manage()
         {
 

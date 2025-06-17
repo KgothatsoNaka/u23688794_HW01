@@ -1,7 +1,216 @@
-﻿
-@{
-    ViewBag.Title = "HomePage";
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>HomePage</h2>
+<div class="rescue-home">
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1 class="hero-title">RESCUEBUS</h1>
+            <p class="hero-tagline">You're better off not dead</p>
+            <div class="hero-divider"></div>
+            <p class="hero-description">
+                A <span class="highlight">real O.K. team</span> here to try and save you.<br>
+                If you're still breathing at the hospital, we've done our job!
+            </p>
+        </div>
+    </div>
 
+
+    <!--For the simple booking section-->
+    <div class="action-cards">
+        <div class="card booking-card">
+            <div class="card-icon">
+                <i class="fas fa-ambulance"></i>
+            </div>
+            <h3>Book Ambulance</h3>
+            <p>Schedule non-emergency medical transport</p>
+            @Html.ActionLink("BOOK NOW", "SelectService", "RescueBus", null, new { @class = "btn btn-book" })
+        </div>
+
+
+        <!--For the SOS section-->
+        <div class="card emergency-card">
+            <div class="card-icon">
+                <i class="fas fa-plus-circle"></i>
+            </div>
+            <h3>Emergency SOS</h3>
+            <p>Immediate assistance for life-threatening situations</p>
+            @Html.ActionLink("EMERGENCY", "EmergencyBooking", "RescueBus", null, new { @class = "btn btn-emergency" })
+            <div class="disclaimer">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>For real emergencies only</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles {
+    <style>
+        
+        :root {
+            --teal-primary: rgb(64,130,109);
+            --teal-dark: rgb(53, 109, 91);
+            --teal-light: rgba(64,130,109,0.1);
+            --emergency-red: #d9534f;
+            --emergency-dark: #c9302c;
+        }
+
+        
+        .rescue-home {
+            min-height: calc(100vh - 150px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        .hero-banner {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('/Images/ambulance-bg.jpg') center/cover no-repeat;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--teal-primary);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .hero-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--teal-primary);
+            margin: 1.5rem auto;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .highlight {
+            color: var(--teal-primary);
+            font-weight: 600;
+        }
+
+       
+        .action-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            width: 320px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .booking-card .card-icon {
+            color: var(--teal-primary);
+        }
+
+        .emergency-card .card-icon {
+            color: var(--emergency-red);
+        }
+
+        .card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-book {
+            background: var(--teal-primary);
+            color: white;
+        }
+
+            .btn-book:hover {
+                background: var(--teal-dark);
+                transform: translateY(-2px);
+            }
+
+        .btn-emergency {
+            background: var(--emergency-red);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+            .btn-emergency:hover {
+                background: var(--emergency-dark);
+                transform: translateY(-2px);
+            }
+
+        
+        .disclaimer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+            .disclaimer i {
+                color: var(--emergency-red);
+            }
+
+        @@media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .action-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+}
