@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using u23688794_HW01.Models;
 
 namespace u23688794_HW01.Controllers
 {
@@ -25,11 +26,11 @@ namespace u23688794_HW01.Controllers
         }
 
 
-
-
-
-
-
+        public ActionResult BookingPage(string service)
+        {
+            ViewBag.ServiceType = service;
+            return View();
+        }
 
 
 
@@ -38,8 +39,19 @@ namespace u23688794_HW01.Controllers
         public ActionResult Manage()
         {
 
-            return View();
+            return View(RescueBusModel.GetSampleData());
         }
+
+        [HttpPost]
+
+        public ActionResult Manage(RescueBusModel model)
+        {
+            var filteredDrivers = model.SearchDrivers();
+
+            return View(filteredDrivers);
+        }
+
+
 
         public ActionResult RideHistory()
         {

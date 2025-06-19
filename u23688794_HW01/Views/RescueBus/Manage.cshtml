@@ -1,7 +1,124 @@
-﻿
+﻿@model u23688794_HW01.Models.RescueBusModel
+
+
 @{
     ViewBag.Title = "Manage";
+    var serviceTypes = new List<string> {"Advanced Life Support", "Basic life Support", "Patient Transport",
+     "Medical Utility", "Event Medical Ambulance", "Air Ambulance"};
 }
 
-<h2>Manage</h2>
+<link href="@Url.Content("~/Content/ManageStyle.css")" rel="stylesheet" />
 
+
+<div class="manage-contain">
+
+    <div class="table-heading">
+        <h2 class="table-type">Drivers</h2>
+        <button class="create-entity" onclick="DriverForm()">Create Driver</button>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="search-box">
+
+            @Html.TextBoxFor(m => m.SearchFirstName, new { @class = "search-field", placeholder = "Drivers name" })
+
+            @Html.DropDownListFor(m => m.SearchServiceType, new SelectList(serviceTypes),
+            "All Services", new { @class = "search-field" })
+
+            <button type="submit" class="search-btn">Search</button>
+
+        </div>
+    }
+
+    <table class="manage-table">
+
+        <thead>
+            <tr>
+
+                <th></th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Service Type</th>
+                <th>Controls</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var driver in Model.Drivers)
+            {
+                <tr>
+                    <td><img src="@driver.ImageUrl" alt="Driver Image" class="driver-image"></td>
+                    <td>@driver.FirstName</td>
+                    <td>@driver.LastName</td>
+                    <td>@driver.PhoneNumber</td>
+                    <td>@driver.ServiceType</td>
+                    <td>
+                        <button class="action-btn" onclick="editDriver(@driver.FirstName)">Update</button>
+                        <button class="action-btn" onclick="deleteDriver(@driver.FirstName)">Delete</button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+
+    <div class="table-heading">
+        <h2 class="table-type">Vehicles</h2>
+
+        <div>
+            <button class="create-entity" onclick="VehicleForm()">New Vehicle</button>
+        </div>
+
+    </div>
+
+
+    <table class="manage-table">
+
+        <thead>
+
+            <tr>
+
+                <th></th>
+                <th>Vehicle Type</th>
+                <th>Vehicle Number</th>
+                <th>Service Type</th>
+                <th>Controls</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var vehicle in Model.Vehicles)
+            {
+                <tr>
+                    <td><img src="@Url.Content("~/Content/Images/Vehicle.png")" alt="Vehicle Image" class="vehicle-image"></td>
+                    <td>@vehicle.Type</td>
+                    <td>@vehicle.RegistrationNumber</td>
+                    <td>@vehicle.ServiceType</td>
+                    <td>
+                        <button class="action-btn" onclick="editVehicle(@vehicle.RegistrationNumber)">Update</button>
+                        <button class="action-btn" onclick="deleteVehicle(@vehicle.RegistrationNumber)">Delete</button>
+                    </td>
+                </tr>
+            }
+
+    </table>
+
+    @using (Html.BeginForm("ExportVehicles", "RescueBus"))
+    {
+        <button type="submit" class="export-btn">Export</button>
+    }
+
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/Management.js")"></script>
+}

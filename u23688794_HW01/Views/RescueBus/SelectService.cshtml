@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Select Service";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/SelectService.css")" rel="stylesheet" />
+
+
+<div class="service-contain">
+
+    <div class="heading">
+        <h2>Select a service</h2>
+        <p>Choose the service you need to proceed with your booking.</p>
+    </div>
+
+
+
+    <div class="service-options">
+
+        <div class="service-box">
+
+            <div class="box-icon">
+                <i class="fas fa-ambulance"></i>
+            </div>
+            <div class="box-content">
+                <h3>Advanced Life Support</h3>
+                <p>ALS is staffed by a paramedic and transports patients who need intensive care.</p>
+                @Html.ActionLink("Select Service", "BookingForm", "RescueBus", null, new { @class = "btn btn-book" })
+            </div>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="box-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="box-content">
+                <h3>Basic Life Support</h3>
+                <p>BLS provides ambulances to patients who are not in a life threatning condition.</p>
+                @Html.ActionLink("Select Service", "BookingForm", "RescueBus", null, new { @class = "btn btn-book" })
+            </div>
+
+        </div>
+
+
+
+
+        <div class="service-box">
+
+            <div class="box-icon">
+                <i class="fa-regular fa-hospital"></i>
+            </div>
+            <div class="box-content">
+                <h3>Patient Transport</h3>
+                <p>The most basic type of transport for patients requiring support to the hospital.</p>
+                @Html.ActionLink("Select Service", "BookingForm", "RescueBus", null, new { @class = "btn btn-book" })
+            </div>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="box-icon">
+                <i class="fa-solid fa-house-medical-flag"></i>
+            </div>
+            <div class="box-content">
+                <h3>Medical Utility Vehicle</h3>
+                <p>A state of the art van used to facilitate the movement of the patient.</p>
+                @Html.ActionLink("Select Service", "BookingForm", "RescueBus", null, new { @class = "btn btn-book" })
+            </div>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="box-icon">
+                <i class="fa-solid fa-house-medical"></i>
+            </div>
+            <div class="box-content">
+                <h3>Event Medical Ambulance</h3>
+                <p>Ambulances that are stationed at events to provide medical assistance.</p>
+                @Html.ActionLink("Select Service", "BookingForm", "RescueBus", null, new { @class = "btn btn-book" })
+            </div>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="box-icon">
+                <i class="fa-solid fa-hand-holding-medical"></i>
+            </div>
+            <div class="box-content">
+                <h3>Air Ambulance</h3>
+                <p>A air ambulance helps in the transfer of patients across long distnaces.</p>
+                @Html.ActionLink("Select Service", "BookingForm", "RescueBus", null, new { @class = "btn btn-book" })
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+

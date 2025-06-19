@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\RescueBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Shared\RouteConfig.cs" />
   </ItemGroup>
@@ -145,9 +146,23 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\HomePage.css" />
+    <Content Include="Content\ManageInfo.css" />
+    <Content Include="Content\ManageStyle.css" />
+    <Content Include="Content\SelectService.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Drivers\Fdriver1.jpg" />
+    <Content Include="Images\Drivers\Fdriver2.jpg" />
+    <Content Include="Images\Drivers\Fdriver3.jpg" />
+    <Content Include="Images\Drivers\Fdriver4.jpg" />
+    <Content Include="Images\Drivers\Fdriver5.jpg" />
+    <Content Include="Images\Drivers\Mdriver1.jpg" />
+    <Content Include="Images\Drivers\Mdriver2.jpg" />
+    <Content Include="Images\Drivers\Mdriver3.jpg" />
+    <Content Include="Images\Drivers\Mdriver4.jpg" />
+    <Content Include="Images\Drivers\Mdriver5.jpg" />
     <Content Include="Images\RescueBus.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -183,10 +198,10 @@
     <Content Include="Views\RescueBus\HomePage.cshtml" />
     <Content Include="Views\RescueBus\RideHistory.cshtml" />
     <Content Include="Views\RescueBus\Manage.cshtml" />
+    <Content Include="Views\RescueBus\SelectService.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
